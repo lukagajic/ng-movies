@@ -1,0 +1,13 @@
+<div class="p-5 mb-4 bg-light rounded-3">
+    <h1 class="display-5">Welcome to SingiMovies!</h1>
+    <p class="lead">
+        This is the place where you can find all information about the movies you like!
+    </p>
+</div>
+
+<div>
+    <h1 class="display-6">Discover movies</h1>
+    <div class="card-deck row">
+        <app-movie-card class="col" [movie]="movie" *ngFor="let movie of movies"></app-movie-card>
+    </div>
+</div>

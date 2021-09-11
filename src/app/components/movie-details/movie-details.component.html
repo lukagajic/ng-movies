@@ -1,0 +1,39 @@
+<div *ngIf="movie; else noMovie">
+  <h1 class="display-5">{{ movie.originalTitle }}</h1>
+
+  <div class="row">
+    <div class="col-md-3">
+      <img [src]="movie?.posterPath" [alt]="movie?.originalTitle" />
+    </div>
+    <div class="col-md-9">
+      <div class="row">
+        <div class="col-12">
+          <p class="lead">Overview</p>
+          <p>
+            {{ movie?.overview }}
+          </p>
+        </div>
+
+        <div class="col-12">
+          <p class="lead">Genres</p>
+          <p>
+            {{ genreString }}
+          </p>
+        </div>
+
+        <div class="col-12">
+          <p class="lead">Production companies</p>
+          <img
+            class="production-company"
+            [src]="pc?.logoPath"
+            [alt]="pc?.name"
+            *ngFor="let pc of movie.productionCompanies"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #noMovie>
+  <p class="lead">There is not a movie by this id or the id is invalid!</p>
+</ng-template>
